@@ -2,6 +2,8 @@ package tomcat.httpserver0;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -17,7 +19,7 @@ public class HttpServer0 {
     /**
      * 端口号
      */
-    public static int port = 9999;
+    public static int port = 9875;
 
     /*
     1.开启服务端端口监听
@@ -35,7 +37,7 @@ public class HttpServer0 {
             ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("等待页面访问...\n");
             while (true) {
-                Socket socket = serverSocket.accept();//阻塞状态
+                Socket socket = serverSocket.accept();//阻塞状态 //TODO 用NIO的方式
                 System.out.println("监听到socket");
                 Request request = new Request(socket.getInputStream());
                 String page = request.getURI();

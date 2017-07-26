@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
  * @author YiJie  2017/7/24
  **/
 public class Request {
-    String URI;
-    InputStream inputStream;
+    private String URI;
+    private InputStream inputStream;
 
     public Request(InputStream inputStream) throws IOException {
         this.inputStream = inputStream;
